@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useCallback } from 'react';
+import API from './services';
 
-function App() {
+import { Gallery } from './container';
+
+const App = () => {
+  const [images, setImages] = useState([]);
+
+  const getData = useCallback(async () => {
+    const data = await API.getImages();
+    setImages(data);
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Gallery images={images} />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,42 @@
+.flex {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.relative {
+  background: #fff;
+  position: relative;
+  z-index: 5;
+}
+
+.absolute {
+  background: #fff;
+  position: absolute;
+  z-index: -5;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
